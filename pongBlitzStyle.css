@@ -70,3 +70,37 @@ h1{
   text-align: center;
   color: #000000;
 }
+
+h3 {
+  text-align: center;
+}
+
+.highscores {
+  border-style: none;
+  text-align: center;
+  color: #E6E6E6;
+  padding: 4px 4px 4px 4px;
+}
+
+.highscores th{
+  color: #FFFFFF;
+  border-style: none;
+  background-color: rgba(0,0,0,0.6);
+  margin-left: 4px;
+}
+
+.highscores td{
+  border-style: none;
+  background-color: #669999;
+}
+
+#footer{
+  border-top: 2px solid #CDCDCD;
+  border-bottom: 2px solid #CDCDCD;
+  text-align: center;
+  white-space: nowrap;
+  margin-top: 20px;
+  padding: 4px 0  4px 0;
+  vertical-align: middle;
+}
+
