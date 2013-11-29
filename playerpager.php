@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
   <h2>Player Name</h2>
   <h3>High Scores</h3>
-    <table align="center" border="1" class="highscores" >
+    <table align="center" border="1" class="table" >
       <tr>
         <th> Score </th>
         <th> Wins-Losses </th>
