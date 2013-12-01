@@ -45,7 +45,10 @@
     for ($i=0; $i < $numRecords; $i++) {
       $record = $result->fetch_assoc();
       echo '<tr><td>';
+      $name = $record['id'];
+      echo '<a href="playerpager.php?user='."$name".'">';
       echo htmlspecialchars($record['Username']);
+      echo '</a>';
       echo '</td><td>';
       echo htmlspecialchars($record['Wins'].'-'.$record['Losses']);
       echo '</td><td>';
