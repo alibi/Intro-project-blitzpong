@@ -22,10 +22,8 @@
 	      <li><a href="ponghome.php">Home</a></li>
 	      <li> |</li>
 	      <li><a href="leaderboards.php">Leaderboards</a></li>
-	      <!--
 	      <li> | </li>
-	      <li><a href="playerPager.php">Me</a></li>
-	      -->
+	      <li><a href="addUser.php">Create Account</a></li>
 	    </ul>
 			
 

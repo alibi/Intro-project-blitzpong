@@ -122,3 +122,19 @@ h3 {
   font-variant: normal;
   color:#E6E6E6;
 }
+/*Create Page CSS*/
+#createPageTitle{
+  text-align: center;
+  font-size: 4em;
+  color:#E6E6E6; 
+}
+.field{
+  font-size: 1.5em;
+}
+#addForm{
+  background-color: #669999;
+  border: solid 3px #E6E6E6
+}
+fieldset{
+  border:0;
+}
