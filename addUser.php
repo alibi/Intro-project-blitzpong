@@ -1,16 +1,15 @@
 <?php 
+  /*
   include('includes/init.inc.php');
-  include('includes/functions.inc.php'); 
+  include('includes/functions.inc.php');
+  */ 
 ?>
 <title>Blitz Pong Userbase Storage</title>   
 
 <?php 
-  include('includes/head.inc.php'); 
+  include('header.php'); 
 ?>
 
-<h1>Users</h1>
- 
-<?php include('includes/menubody.inc.php'); ?>
 
 <?php
   $dbOk = false;
@@ -43,7 +42,7 @@
       $errors .= '<li>Password may not be blank!</li>';
       if ($focusId == '') $focusId = '#password';
     }
-    if ($passwordcheck == '') or ($passwordcheck != $password) {
+    if ($passwordcheck == '' or $passwordcheck != $password) {
       $errors .= '<li>Password fields must match!</li>';
       if ($focusId == '') $focusId = '#password';
     }
@@ -62,8 +61,8 @@
         
         $usernameForDb = trim($_POST["username"]);  
         $passwordForDb = trim($_POST["password"]);
-        $userWins = 0
-        $userLosses = 0
+        $userWins = 0;
+        $userLosses = 0;
         
         $insQuery = "insert into users (`username`,`password`,`wins`, `losses`) values(?,?,?,?)";
         $statement = $db->prepare($insQuery);
@@ -102,38 +101,6 @@
   </fieldset>
 </form>
 
-<h3>Actors</h3>
-<table id="userTable">
-<?php
-  if ($dbOk) {
 
-    $query = 'select * from users order by wins desc';
-    $result = $db->query($query);
-    $numRecords = $result->num_rows;
-    
-    echo '<tr><th>Name:</th><th>Date of Birth:</th><th></th></tr>';
-    for ($i=0; $i < $numRecords; $i++) {
-      $record = $result->fetch_assoc();
-      if ($i % 2 == 0) {
-        echo "\n".'<tr id="user-' . $record['userid'] . '"><td>';
-      } else {
-        echo "\n".'<tr class="odd" id="user-' . $record['userid'] . '"><td>';
-      }
-      echo htmlspecialchars($record['username']) . ', ';
-      echo htmlspecialchars($record['password']);
-      echo '</td><td>';
-      echo '<img src="resources/delete.png" class="deleteUser" width="16" height="16" alt="delete user"/>';
-      echo '</td></tr>';
-      
-    }
-    
-    $result->free();
-    
-    $db->close();
-  }
-  
-?>
-</table>
-
-<?php include('includes/foot.inc.php'); 
+<?php include('footer.php'); 
 ?>
