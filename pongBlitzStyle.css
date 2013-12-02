@@ -90,18 +90,21 @@ h3 {
 /* Scoreboard CSS */
 #leftScore{
   float:left;
-  font-size: 5em;
+  font-size: 4em;
   color: white;
-  margin-left: 10%;
+  clear:left;
 }
 #rightScore{
   float:right;
-  font-size: 5em;
-  margin-right: 10%;
+  font-size: 4em;
   color:white;
+  clear:right;
 }
 #scoreBoard{
   text-align: center;
+  width: 80%;
+  margin-left: 10%;
+  margin-right:10%;
 }
 .name{
   color:white;
@@ -112,11 +115,6 @@ h3 {
 }
 #player{
   float: right;
-}
-#pongArea{
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 80%;
 }
 /*Profile Page*/
 #profileName{
