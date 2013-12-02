@@ -1,32 +1,11 @@
 <?php include 'header.php'; ?>
-    <!--
-    <table align="center" border="1" class="table" id="leaderboard" cellpadding="0" cellspacing="0">
-      <tr>
-        <th> Player Name </th>
-        <th> Wins-Losses </th>
-        <th> Games Played </th>
-        <th> Win % </th>
-      </tr>
-      <tr>
-        <td> A </td>
-        <td> 4-0 </td>
-        <td> 4 </td>
-        <td> 100% </td>
-      </tr>
-      <tr>
-        <td> B </td>
-        <td> 0-4 </td>
-        <td> 4 </td>
-        <td> 0% </td>
-      </tr>
-    </table>
-    -->
-<table class="table" align="center">
+
+
 <?php
     $dbOk = false;
     /* Create a new database connection object, passing in the host, username,
        password, and database to use. The "@" suppresses errors. */
-    @ $db = new mysqli('localhost', 'root', 'password', 'pong');
+    @ $db = new mysqli('localhost', 'root', 'admin', 'blitzpong');
     
     if ($db->connect_error) {
       echo '<div class="messages">Could not connect to the database. Error: ';
@@ -41,21 +20,28 @@
     $result = $db->query($query);
     $numRecords = $result->num_rows;
     
+    echo  '<table class="table" align="center">';
     echo '<tr><th>Username</th><th>Wins-Losses</th><th>GamesPlayed</th><th>Win%</th></tr>';
     for ($i=0; $i < $numRecords; $i++) {
       $record = $result->fetch_assoc();
+
+      // $name = $record['userid'];
+      // $score = $row['Score'];
+      // $gp = $row['GamesPlayed'];
+      // $winp = $row['WinP'];
+
       echo '<tr><td>';
-      $name = $record['id'];
+      $name = $record['userid'];
       echo '<a href="playerpager.php?user='."$name".'">';
-      echo htmlspecialchars($record['Username']);
+      echo htmlspecialchars($record['username']);
       echo '</a>';
       echo '</td><td>';
-      echo htmlspecialchars($record['Wins'].'-'.$record['Losses']);
+      echo htmlspecialchars($record['wins'].'-'.$record['losses']);
       echo '</td><td>';
       // calculate total games and win %
-      $totalgames = $record['Wins'] + $record['Losses'];
+      $totalgames = $record['wins'] + $record['losses'];
       if ($totalgames != 0){
-        $winper = ($record['Wins'] / $totalgames)*100; 
+        $winper = ($record['wins'] / $totalgames)*100; 
       }else{
         $winper = 0;
       }
@@ -63,6 +49,7 @@
       echo "$totalgames";
       echo '</td><td>';
       echo "$winper". '%';
+
       echo '</td></tr>';
       // Uncomment the following three lines to see the underlying 
       // associative array for each record.
